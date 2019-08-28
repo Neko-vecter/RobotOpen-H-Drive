@@ -14,14 +14,12 @@ ROPWM H_Drive(3);
 
 int W_Light = 53;
 
-//setIP
-
 void setup()
 {
   /* Initiate comms */
-
-  //RobotOpenClass::setIP(IPAddress, 192, 168, 1, 22);
   RobotOpen.begin(&enabled, &disabled, &timedtasks);
+  /* Set IPAddress */
+  RobotOpen.setIP(IPAddress(192, 168, 1, 22));
 
   leftDrive.attach();
   rightDrive.attach();
@@ -48,8 +46,7 @@ void enabled() {
   rightDrive.write(FBPower - rightPower);
   H_Drive.write(H_Power);
 
-  //The code for light??
-
+  //The code for light?? 
 
 }
 
