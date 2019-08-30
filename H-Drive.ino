@@ -4,32 +4,30 @@
 #include <Servo.h>
 #include <RobotOpenHA.h>
 
-#
-
-
 /* I/O Setup */
-ROJoystick usb1(2);         // Joystick #1
+ROJoystick usb1(1);         // Joystick #1
 
 ROPWM leftDrive(5);
 ROPWM rightDrive(6);
 ROPWM H_Drive(3);
 
-int W_Light = 53;
+//int W_Light = 53;
 
 void setup()
 {
   /* Initiate comms */
   RobotOpen.begin(&enabled, &disabled, &timedtasks);
   /* Set IPAddress Subnet Gateway */
-  //RobotOpen.setIP(IPAddress(192, 168, 1, 22));
-  //RobotOpen.setSubnet(IPAddress(255,255,255,));
+  /* You can change IPAddress in the library "RobotOpenHA.cpp" */
+  //RobotOpen.setIP(IPAddress(192, 168, 1, 23));
+  //RobotOpen.setSubnet(IPAddress(255,255,255,0));
   //RobotOpen.setGateway(IPAddress(192, 168, 1, 1));
 
   leftDrive.attach();
   rightDrive.attach();
   H_Drive.attach();
 
-  pinMode(W_Light, OUTPUT);
+  //pinMode(W_Light, OUTPUT);
 
 }
 
@@ -60,7 +58,7 @@ void disabled() {
   // safety code
 
   // safety code for light
-  digitalWrite(W_Light, HIGH);
+  //digitalWrite(W_Light, HIGH);
 
   // neutral out PWMs
   leftDrive.write(0);
