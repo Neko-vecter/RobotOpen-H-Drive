@@ -39,12 +39,12 @@ void setup()
 */
 void enabled() {
   //The code for Joy??
-  int FBPower = constrain((usb1.leftY()), 0, 257);
+  int FBPower = constrain((usb1.leftY()), 0, 255);
 
-  int leftPower = constrain((usb1.rightX()), 0, 257);
-  int rightPower = constrain((usb1.rightX()), 0, 257);
+  int leftPower = constrain((usb1.rightX()), 0, 255);
+  int rightPower = constrain((usb1.rightX()), 0, 255);
 
-  int H_Power = constrain ((usb1.leftX()), 0, 257);
+  int H_Power = constrain ((usb1.leftX()), 0, 255);
 
   leftDrive.write(127-FBPower+leftPower);
   rightDrive.write(127+FBPower-rightPower);
@@ -63,9 +63,9 @@ void disabled() {
   digitalWrite(W_Light, HIGH);
 
   // neutral out PWMs
-  leftDrive.write(129);
-  rightDrive.write(129);
-  H_Drive.write(129);
+  leftDrive.write(0);
+  rightDrive.write(0);
+  H_Drive.write(0);
 }
 
 
