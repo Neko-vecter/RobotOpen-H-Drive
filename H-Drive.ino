@@ -4,9 +4,11 @@
 #include <Servo.h>
 #include <RobotOpenHA.h>
 
+#
+
 
 /* I/O Setup */
-ROJoystick usb1(1);         // Joystick #1
+ROJoystick usb1(2);         // Joystick #1
 
 ROPWM leftDrive(5);
 ROPWM rightDrive(6);
@@ -18,8 +20,10 @@ void setup()
 {
   /* Initiate comms */
   RobotOpen.begin(&enabled, &disabled, &timedtasks);
-  /* Set IPAddress */
-  RobotOpen.setIP(IPAddress(192, 168, 1, 22));
+  /* Set IPAddress Subnet Gateway */
+  //RobotOpen.setIP(IPAddress(192, 168, 1, 22));
+  //RobotOpen.setSubnet(IPAddress(255,255,255,));
+  //RobotOpen.setGateway(IPAddress(192, 168, 1, 1));
 
   leftDrive.attach();
   rightDrive.attach();
@@ -35,15 +39,15 @@ void setup()
 */
 void enabled() {
   //The code for Joy??
-  int FBPower = constrain((usb1.leftY()), 0, 255);
+  int FBPower = constrain((usb1.leftY()), 0, 257);
 
-  int leftPower = constrain((usb1.rightX()), 0, 255);
-  int rightPower = constrain((usb1.rightX()), 0, 255);
+  int leftPower = constrain((usb1.rightX()), 0, 257);
+  int rightPower = constrain((usb1.rightX()), 0, 257);
 
-  int H_Power = constrain ((usb1.leftX()), 0, 255);
+  int H_Power = constrain ((usb1.leftX()), 0, 257);
 
-  leftDrive.write(FBPower + leftPower);
-  rightDrive.write(FBPower - rightPower);
+  leftDrive.write(127-FBPower+leftPower);
+  rightDrive.write(127+FBPower-rightPower);
   H_Drive.write(H_Power);
 
   //The code for light?? 
@@ -59,9 +63,9 @@ void disabled() {
   digitalWrite(W_Light, HIGH);
 
   // neutral out PWMs
-  leftDrive.write(0);
-  rightDrive.write(0);
-  H_Drive.write(0);
+  leftDrive.write(129);
+  rightDrive.write(129);
+  H_Drive.write(129);
 }
 
 
