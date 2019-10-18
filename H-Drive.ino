@@ -27,7 +27,7 @@ void setup()
   rightDrive.attach();
   H_Drive.attach();
 
-  //pinMode(W_Light, OUTPUT);
+  pinMode(W_Light, OUTPUT);
 
 }
 
@@ -50,6 +50,8 @@ void enabled() {
 
   //The code for light?? 
   
+  digitalWrite(W_Light,HIGH);
+
 }
 
 
