@@ -2,5 +2,6 @@
     "board": "arduino:avr:mega",
     "configuration": "cpu=atmega2560",
     "programmer": "AVRISP mkII",
-    "sketch": "H-Drive.ino"
+    "sketch": "H-Drive.ino",
+    "port": "COM7"
 }

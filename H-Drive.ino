@@ -11,7 +11,7 @@ ROPWM leftDrive(5);
 ROPWM rightDrive(6);
 ROPWM H_Drive(3);
 
-//int W_Light = 53;
+int W_Light = 53;
 
 void setup()
 {
@@ -49,16 +49,16 @@ void enabled() {
   H_Drive.write(H_Power);
 
   //The code for light?? 
-
+  
 }
 
 
 /* This is called while the robot is disabled */
 void disabled() {
-  // safety code
+  // safety code!!
 
   // safety code for light
-  //digitalWrite(W_Light, HIGH);
+  digitalWrite(W_Light, HIGH);
 
   // neutral out PWMs
   leftDrive.write(0);
