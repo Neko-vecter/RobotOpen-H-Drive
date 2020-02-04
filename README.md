@@ -12,13 +12,24 @@ https://robotopen.readthedocs.io/en/latest/classes/robotopen.html
 
 ## Code
 This code can run on arduino Uno/Mega 2560  
-But I if you want to running this code on "Arduino Uno" make sure the I/O is right!! 
+But if you want to running this code on "Arduino Uno" make sure the I/O is right!! 
+
+## The latest update
+add W_light code(if you want use this feature you might need arduino nano to control the light)
+The led pin is 33(if you want to run this code on "Arduino Uno" make sure the I/O is right!!)
+
+### Add Arduino nano in the system
+will update the arduino nano code later(The Arduino nano will control all leds on the robot)
 
 ### If you want to change you IP address you can change in library "RobotOpenHA.cpp"
+I don't know why I can't change in the code(Maybe I will rewrite later)
 
 ### This code not finish yet.. But it can run.. 
 
 
 ## Drivetrain
+I redesign the Drivetranin use the carbon fiber
+Also much easier to assembly
+
 Just finish the Drivetrain!!
 ![Drivetrain](https://github.com/vecterIFI/RobotOpen-H-Drive/raw/master/Drivetrain/H-Drive_1.PNG)
